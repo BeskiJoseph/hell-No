@@ -14,7 +14,7 @@ export async function analyzeWithGroq(prompt: string): Promise<string> {
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 1000
     });
-    return response.choices[0].message.content;
+    return response.choices[0].message.content ?? "";
   } catch (error) {
     console.error('Error calling Groq API:', error);
     throw error;
